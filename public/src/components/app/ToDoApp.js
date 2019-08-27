@@ -1,5 +1,8 @@
 import Component from '../Component.js';
 import Header from './Header.js';
+import ToDoList from './ToDoList.js';
+import ToDoItem from './ToDoItem.js';
+import NewItemForm from './NewItemForm.js';
 
 class ToDoApp extends Component {
 
@@ -8,13 +11,21 @@ class ToDoApp extends Component {
         const headerDOM = header.renderDOM();
         dom.prepend(headerDOM);
 
+        const main = dom.querySelector('main');
+
+        const toDoList = new ToDoList({
+            items: [],
+            onUpdate: item => {
+
+                
+            }
+        }) 
     }
 
     renderHTML(){
         return /*html*/`
         <div>
-            <main>
-        
+            <main>       
             </main>  
         </div>
         `;

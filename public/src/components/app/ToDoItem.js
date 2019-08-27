@@ -22,7 +22,7 @@ class ToDoItem extends Component {
 
     renderHTML() {
         const item = this.props.item;
-        
+
         return /*html*/`
         <li class="to-do-item">
             <button class="mark-done"> ☐ </button>
