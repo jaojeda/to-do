@@ -1,8 +1,8 @@
 import Component from '../Component.js';
 import Header from './Header.js';
 import ToDoList from './ToDoList.js';
-import ToDoItem from './ToDoItem.js';
 import NewItemForm from './NewItemForm.js';
+import { getItems, addItem, updateItem, removeItem } from '../services/tasks-api.js';
 
 class ToDoApp extends Component {
 
@@ -17,9 +17,47 @@ class ToDoApp extends Component {
             items: [],
             onUpdate: item => {
 
+                return updateItem(item)
+                    .them(updated => {
+                        const items = this.state.items;
+                        const index = items.indexOf(item);
+                        items.splice(index, 1, updated);
+                        toDoList.update({ items });
+                    });
+
+            },
+            onRemove: item => {
                 
+                return removeItem(item.id)
+                    .then(() => {
+                        const items = this.state.items;
+                        const index = items.indexOf(item);
+                        items.splice(index, 1);
+                    });
             }
-        }) 
+        });
+        main.appendChild(toDoList.renderDOM()); 
+
+        const itemForm = new NewItemForm({
+            onAdd: item => {
+                return addItem(item)
+                    .then(saved => {
+                        const items = this.state.items;
+                        items.push(saved);
+                        toDoList.update({ items });
+                    });
+            }
+        });
+        main.appendChild(itemForm.renderDOM());
+
+        getItems({ showAll: true })
+            .then(items => {
+                this.state.items = items;
+                toDoList.update({ items });
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 
     renderHTML(){
