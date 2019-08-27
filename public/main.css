@@ -3,17 +3,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: gainsboro;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
 .to-do-container {
     height: 70vh;
     width: 60vw;
