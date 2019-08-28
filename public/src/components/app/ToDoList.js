@@ -4,7 +4,8 @@ import ToDoItem from './ToDoItem.js';
 class ToDoList extends Component {
 
     onRender(list) {
-        const items = this.props.itmes;
+        const items = this.props.items;
+        console.log(items);
         const onUpdate = this.props.onUpdate;
         const onRemove = this.props.onRemove;
 

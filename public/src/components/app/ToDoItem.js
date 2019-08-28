@@ -4,31 +4,34 @@ class ToDoItem extends Component {
 
     onRender(dom) {
         const item = this.props.item;
+  
         const onUpdate = this.props.onUpdate;
         const onRemove = this.props.onRemove;
 
-        const inactiveButton = dom.querySelector('.inactive-button');
+        const inactiveButton = dom.querySelector('.mark-done');
         inactiveButton.addEventListener('click', () => {
-            console.log(item, 'inactive!');
+            item.inactive = !item.inactive;
             onUpdate(item);
         });
 
         const removeButton = dom.querySelector('.remove-button');
         removeButton.addEventListener('click', () => {
-            console.log(item, 'deleted!');
-            onRemove(item);
+            if(confirm(`Are you sure you want to remove "${item.task}"?`)) {
+                onRemove(item);
+            }
         });
     }
 
     renderHTML() {
         const item = this.props.item;
+        console.log(item);
 
         return /*html*/`
         <li class="to-do-item">
             <button class="mark-done"> ☐ </button>
             <div class="to-do-text">
                 <p>
-                    ${item.name}
+                    ${item.task}
                 </p>
             </div>
             <button class="remove-button"> ⎋ </button>

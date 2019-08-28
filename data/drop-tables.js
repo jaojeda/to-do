@@ -3,8 +3,7 @@ const client = require('../lib/client');
 client.connect()
     .then(() => {
         return client.query(`
-            DROP TABLE IF EXISTS cats;
-            DROP TABLE IF EXISTS types;
+            DROP TABLE IF EXISTS items;
     `);
     })
     .then(

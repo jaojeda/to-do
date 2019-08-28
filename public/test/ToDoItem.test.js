@@ -14,8 +14,7 @@ test('renders', assert => {
     <li class="to-do-item">
         <button class="mark-done"> ☐ </button>
         <div class="to-do-text">
-            <p>
-
+            <p> 
                 Do laundry
             </p>
         </div>

@@ -36,6 +36,7 @@ class ToDoApp extends Component {
                     });
             }
         });
+        console.log(toDoList);
         main.appendChild(toDoList.renderDOM()); 
 
         const itemForm = new NewItemForm({
@@ -52,6 +53,7 @@ class ToDoApp extends Component {
 
         getItems({ showAll: true })
             .then(items => {
+                console.log('items', items);
                 this.state.items = items;
                 toDoList.update({ items });
             })

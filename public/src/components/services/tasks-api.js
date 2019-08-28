@@ -4,11 +4,11 @@ const URL = '/api';
 function fetchWithError(url, options) {
     return fetch(url, options) 
         .then(response => {
-            if(Response.ok) {
+            if(response.ok) {
                 return response.json();
             }
             else {
-                return response.json().them(json => {
+                return response.json().then(json => {
                     throw json.error;
                 });
             }
@@ -18,7 +18,7 @@ function fetchWithError(url, options) {
 
 export function getItems(options) {
     const showAll = options && options.showAll;
-    const url = `${URL}/items${showAll ? '/show=all' : ''}`;
+    const url = `${URL}/items${showAll ? '?show=all' : ''}`;
     return fetchWithError(url);
 }
 
