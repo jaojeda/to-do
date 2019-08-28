@@ -56,14 +56,14 @@ class ToDoApp extends Component {
                 toDoList.update({ items });
             })
             .catch(err => {
-                console.log(err);
+                console.log(err);// eslint-disable-line no-console
             });
     }
 
     renderHTML(){
         return /*html*/`
         <div>
-            <main>       
+            <main>
             </main>  
         </div>
         `;
