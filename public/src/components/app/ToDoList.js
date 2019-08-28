@@ -5,7 +5,6 @@ class ToDoList extends Component {
 
     onRender(list) {
         const items = this.props.items;
-        console.log(items);
         const onUpdate = this.props.onUpdate;
         const onRemove = this.props.onRemove;
 
@@ -17,7 +16,10 @@ class ToDoList extends Component {
     }
     renderHTML() {
         return /*html*/`
-            <ul class="to-do-list"></ul>
+            <div class="to-do-container">
+                <h2 class="to-do-header">To Do</h2>
+                <ul class="to-do-list"></ul>
+            </div>   
         `;
     }
 }

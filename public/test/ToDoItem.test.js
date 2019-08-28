@@ -11,15 +11,15 @@ test('renders', assert => {
     };
 
     const expected = /*html*/`
-    <li class="to-do-item">
-        <button class="mark-done"> ☐ </button>
-        <div class="to-do-text">
-            <p> 
-                Do laundry
-            </p>
-        </div>
-        <button class="remove-button"> ⎋ </button>
-    </li>
+        <li class="to-do-item">
+            <button class="mark-done"> ☐ </button>
+            <div class="to-do-text">
+                <p class ="">
+                    Do laundry
+                </p>
+            </div>
+            <button class="remove-button"> ⎋ </button>
+        </li>
     `;
 
     const toDoItem = new ToDoItem({ item });

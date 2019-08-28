@@ -37,6 +37,31 @@ app.get('/api/items', (req, res) => {
         });  
 });
 
+app.delete('/api/items/:id', (req, res) => {
+    const id = req.params.id;
+    console.log('delete');
+    client.query(`
+        DELETE FROM items
+        WHERE  id = $1
+        RETURNING *;
+    `,
+    [id]
+    )
+        .then(result => {
+            res.json(result.rows[0]);
+        })
+        .catch(err => {
+            if(err.code === '23503') {
+                res.status(400).json({
+                    error: `Could not remove, task is unfinished. Mark as complete first before deleting.`
+                });
+            }
+            res.status(500).json({
+                error: err.message || err
+            });
+        }); 
+});
+
 app.post('/api/items', (req, res) => {
     const item = req.body;
     client.query(`
@@ -61,14 +86,14 @@ app.post('/api/items', (req, res) => {
         }); 
 });
 
-app.put('api/items/:id', (req, res) => {
+app.put('/api/items/:id', (req, res) => {
     const id = req.params.id;
     const item = req.body;
     
     client.query(`
-        UPDATE types
+        UPDATE items
         SET    task = $2,
-            inactive = $3
+                inactive = $3
         WHERE  id = $1
         RETURNING *;
     `,
@@ -90,30 +115,7 @@ app.put('api/items/:id', (req, res) => {
 
 });
 
-app.delete('api/items/:id', (req,res) => {
-    const id = req.params.id;
 
-    client.query(`
-        DELETE FROM types
-        WHERE  id = $1
-        RETURNING *;
-    `,
-    [id]
-    )
-        .then(result => {
-            res.json(result.rows[0]);
-        })
-        .catch(err => {
-            if(err.code === '23503') {
-                res.status(400).json({
-                    error: `Could not remove, task is unfinished. Mark as complete first before deleting.`
-                });
-            }
-            res.status(500).json({
-                error: err.message || err
-            });
-        }); 
-});
 
 app.listen(PORT, () => {
     console.log('server running on PORT', PORT);

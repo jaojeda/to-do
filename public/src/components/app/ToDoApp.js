@@ -18,7 +18,7 @@ class ToDoApp extends Component {
             onUpdate: item => {
 
                 return updateItem(item)
-                    .them(updated => {
+                    .then(updated => {
                         const items = this.state.items;
                         const index = items.indexOf(item);
                         items.splice(index, 1, updated);
@@ -27,16 +27,15 @@ class ToDoApp extends Component {
 
             },
             onRemove: item => {
-                
                 return removeItem(item.id)
                     .then(() => {
                         const items = this.state.items;
                         const index = items.indexOf(item);
                         items.splice(index, 1);
+                        toDoList.update({ items });
                     });
             }
         });
-        console.log(toDoList);
         main.appendChild(toDoList.renderDOM()); 
 
         const itemForm = new NewItemForm({
@@ -53,7 +52,6 @@ class ToDoApp extends Component {
 
         getItems({ showAll: true })
             .then(items => {
-                console.log('items', items);
                 this.state.items = items;
                 toDoList.update({ items });
             })

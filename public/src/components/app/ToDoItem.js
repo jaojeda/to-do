@@ -24,13 +24,12 @@ class ToDoItem extends Component {
 
     renderHTML() {
         const item = this.props.item;
-        console.log(item);
 
         return /*html*/`
         <li class="to-do-item">
-            <button class="mark-done"> ☐ </button>
+            <button class="mark-done"> ${item.inactive ? '☑' : '☐'} </button>
             <div class="to-do-text">
-                <p>
+                <p class ="${item.inactive ? 'inactive' : ''}">
                     ${item.task}
                 </p>
             </div>
