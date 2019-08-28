@@ -3,6 +3,12 @@ const client = require('../lib/client');
 client.connect()
     .then(() => {
         return client.query(`
+            CREATE TABLE users (
+                id SERIAL PRIMARY KEY,
+                email VARCHAR(256) NOT NULL,
+                hash VARCHAR(512) NOT NULL,
+            );
+
             CREATE TABLE items (
                 id SERIAL PRIMARY KEY NOT NULL,
                 task VARCHAR(256) NOT NULL UNIQUE,
