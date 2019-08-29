@@ -1,0 +1,15 @@
+.item-form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.item-form input {
+    flex-grow: 1;
+    width: 10vw;
+    min-width: 300px;
+}
+
+.item-form input, .item-form button {
+    font-size: 1.1em;
+}

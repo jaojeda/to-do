@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Checklist</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="src/components/app/Header.css">
+    <link rel="stylesheet" href="src/components/app/ToDoApp.css">
+    <link rel="stylesheet" href="src/components/app/ToDoItem.css">
+    <link rel="stylesheet" href="src/components/app/NewItemForm.css">
+</head>
+<body>
+    <div>
+        <header>
+            <h1>Checklist</h1>
+        </header>
+        <main>
+            <div class="to-do-container">
+                <h2 class="to-do-header">To Do</h2>
+                <ul class="to-do-list">
+                    <li class="to-do-item">
+                        <button class="mark-done"> ☐ </button>
+                        <div class="to-do-text">
+                            <p class="inactive">
+
+                                Do laundry
+                            </p>
+                        </div>
+                        <button class="remove-button"> ⎋ </button>
+                    </li>
+                    <li class="to-do-item">
+                        <button class="mark-done"> ☐ </button>
+                        <div class="to-do-text">
+                            <p>
+                                Long example of a to do item to test how the styling should look on long sentences in the HMTL side of things. 
+                            </p>
+                        </div>
+                        <button class="remove-button"> ⎋ </button>
+                    </li>
+                    <li class="to-do-item">
+                        <button class="mark-done"> ☐ </button>
+                        <div class="to-do-text">
+                            <p>
+                                Example to do item
+                            </p>
+                        </div>
+                        <button class="remove-button"> ⎋ </button>
+                    </li>
+                </ul>
+            </div>
+            <section class="type-form-section">
+                <form class="type-form">
+                    <input name="type" required>
+                    <button>Add</button>
+                </form>
+                <p class="error"></p>
+            </section>
+        </main>  
+    </div>
+</body>
+</html>
