@@ -6,7 +6,6 @@ import store from '../services/store.js';
 import { signUp as userSignUp, signIn as userSignIn } from '../services/tasks-api.js';
 
 function success(user) {
-    console.log(user);
     store.setToken(user.token);
     const searchParams = new URLSearchParams(location.search);
     location = searchParams.get('redirect') || './';
