@@ -1,15 +1,15 @@
-.type-form {
+.item-form {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.type-form input {
+.item-form input {
     flex-grow: 1;
-    width: 50vw;
+    width: 10vw;
     min-width: 300px;
 }
 
-.type-form input, .type-form button {
+.item-form input, .item-form button {
     font-size: 1.1em;
 }

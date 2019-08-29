@@ -5,7 +5,7 @@ class NewItemForm extends Component {
     onRender(dom) {
         const onAdd = this.props.onAdd;
         const form = dom.querySelector('form');
-        const input = dom.querySelector('input[name=type]');
+        const input = dom.querySelector('input[name=item]');
         const error = dom.querySelector('p.error');
 
         form.addEventListener('submit', event => {
@@ -30,9 +30,9 @@ class NewItemForm extends Component {
 
     renderHTML() {
         return /*html*/`
-            <section class="type-form-section">
-                <form class="type-form">
-                    <input name="type" required>
+            <section class="item-form-section">
+                <form class="item-form">
+                    <input name="item" required>
                     <button>Add</button>
                 </form>
                 <p class="error"></p>

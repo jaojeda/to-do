@@ -34,12 +34,6 @@
     margin: 10px;
 }
 
-.type-form-section {
+.item-form-section {
     padding-top: 20px;
-}
-
-.type-form {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
 }
